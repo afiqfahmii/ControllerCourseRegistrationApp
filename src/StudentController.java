@@ -48,7 +48,6 @@ public class StudentController {
 
     public void displayAllCourses(ArrayList<Student> sList, int i) {
         sList.get(i).displayAllCourses();
-
     }
 
 }

@@ -42,23 +42,47 @@ public class Student extends Person {
         }
 
     }
-     public Course getCourse(int i){
+
+    public Course getCourse(int i) {
         return cList.get(i);
-     }
+    }
 
     public void StudRemoveCourse(int i) {
         totalCredit -= cList.get(i).getCredits();
         cList.remove(i);
-        
+
     }
 
     public void displayAllCourses() {
-        for (int i = 0; i < cList.size(); i++) {
-            System.out.println(cList.get(i).getCourseName() + " " + cList.get(i).getCourseCode() + " "
-                    + cList.get(i).getCredits());
+        if (cList.isEmpty()) {
+            System.out.println("No course registered.");
+        } else {
+            for (int i = 0; i < cList.size(); i++) {
+                System.out.println(
+                        (i + 1) + ". " + cList.get(i).getCourseName() + " " + cList.get(i).getCourseCode() + " "
+                                + cList.get(i).getCredits());
+            }
         }
     }
-    
+
+    public void StudRemoveCourse(String courseCode) {
+        Course courseToRemove = null;
+
+        // Find the course by course code
+        for (Course course : cList) {
+            if (course.getCourseCode().equals(courseCode)) {
+                courseToRemove = course;
+                break;
+            }
+        }
+
+        if (courseToRemove != null) {
+            totalCredit -= courseToRemove.getCredits();
+            cList.remove(courseToRemove);
+            System.out.println("Course removed from the student.");
+        } else {
+        }
+    }
 
     @Override
 
