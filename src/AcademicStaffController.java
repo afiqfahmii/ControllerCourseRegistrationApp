@@ -71,7 +71,7 @@ public class AcademicStaffController {
             return;
         }
 
-        System.out.println("Available courses:");
+        System.out.println("\nAvailable courses:");
         for (int i = 0; i < courseList.size(); i++) {
             System.out.println((i + 1) + ". " + courseList.get(i).toString());
         }
@@ -88,10 +88,17 @@ public class AcademicStaffController {
             for (Student student : studentList) {
                 student.StudRemoveCourse(courseCodeToRemove);
             }
-
+            for (Lecturer lecturer : lecturerList) {
+                // Check if the lecturer's course matches the one to remove
+                if (lecturer.getCourse() != null && lecturer.getCourse().equals(courseList.get(removeCourseIndex))) {
+        // If it matches, remove the course from the lecturer's assignment
+                    lecturer.setCourse(null);
+                    break; // Exit the loop since we found the matching lecturer
+                }
+            }
             // Remove the course from the course list
             courseList.remove(removeCourseIndex);
-            System.out.println("Course removed successfully.");
+            System.out.println("\nCourse removed successfully.");
         } else {
             System.out.println("Invalid course number.");
         }
@@ -103,7 +110,7 @@ public class AcademicStaffController {
             return;
         }
 
-        System.out.println("Available courses:");
+        System.out.println("\nAvailable courses:");
         for (int i = 0; i < courseList.size(); i++) {
             System.out.println((i + 1) + ". " + courseList.get(i).toString());
         }

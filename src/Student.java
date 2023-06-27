@@ -35,6 +35,10 @@ public class Student extends Person {
         this.matricNumber = matricNumber;
     }
 
+    public ArrayList<Course> getcList() {
+        return cList;
+    }
+
     public void StudRegCourse(Course c) {
         if ((totalCredit + c.getCredits()) <= MAXCRED) {
             cList.add(c);
@@ -48,9 +52,10 @@ public class Student extends Person {
     }
 
     public void StudRemoveCourse(int i) {
-        totalCredit -= cList.get(i).getCredits();
-        cList.remove(i);
-
+        
+            totalCredit -= cList.get(i).getCredits();
+            cList.remove(i);
+        
     }
 
     public void displayAllCourses() {

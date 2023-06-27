@@ -10,19 +10,24 @@ public class LecturerView {
     }
 
     public void checkCourseInfo(ArrayList<Lecturer> lList, int i) {
-        System.out.println(lList.get(i).getCourse().toString());
+        if (lList.get(i).getCourse() != null)
+            System.out.println(lList.get(i).getCourse().toString());
+        else
+            System.out.println("No course");
         System.out.println();
     }
 
     public void printStudList(ArrayList<Lecturer> lList, int i) {
-        for (int j = 0; j < lList.get(i)
-                .getCourse()
-                .getStudentNum(); j++) {
-            System.out.println((j + 1)
-                    + ") "
-                    + lList.get(i).getCourse()
-                            .getStudent(j)
-                            .getName());
+        if (lList.get(i).getCourse() != null) {
+            for (int j = 0; j < lList.get(i)
+                    .getCourse()
+                    .getStudentNum(); j++) {
+                System.out.println((j + 1)
+                        + ") "
+                        + lList.get(i).getCourse()
+                                .getStudent(j)
+                                .getName());
+            }
             System.out.println();
         }
 
