@@ -52,10 +52,8 @@ public class Student extends Person {
     }
 
     public void StudRemoveCourse(int i) {
-        
             totalCredit -= cList.get(i).getCredits();
             cList.remove(i);
-        
     }
 
     public void displayAllCourses() {

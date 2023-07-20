@@ -2,8 +2,6 @@
 
 import java.util.Scanner;
 
-import javax.swing.plaf.SliderUI;
-
 import java.util.ArrayList;
 
 public class App {

@@ -94,4 +94,8 @@ public class Course {
         }
     }
 
+    public int getCapacity(){
+        return MAX;
+    }
+
 }

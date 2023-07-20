@@ -2,14 +2,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StudentController {
+    StudentView sv = new StudentView();
 
     public int studentOption(ArrayList<Student> sList, int i, Scanner s) {
         App.greeting(sList.get(i));
-        System.out.println("1. Add Course");
-        System.out.println("2. Drop Course");
-        System.out.println("3. View Course Detail");
-        System.out.println("4. Exit");
-        System.out.print("Enter Your Option: ");
+        sv.option();
         int option = s.nextInt();
         s.nextLine();
         System.out.println();
