@@ -18,7 +18,7 @@ public class LecturerView {
     }
 
     public void printStudList(ArrayList<Lecturer> lList, int i) {
-        if (lList.get(i).getCourse() != null && lList.get(i).getCourse().getStudent(0)!=null) {
+        if (lList.get(i).getCourse() != null && lList.get(i).getCourse().getStudentNum()>0) {
             for (int j = 0; j < lList.get(i)
                     .getCourse()
                     .getStudentNum(); j++) {
@@ -29,6 +29,9 @@ public class LecturerView {
                                 .getName());
             }
             System.out.println();
+        }
+        else{
+            System.out.println("No student registered");
         }
 
     }

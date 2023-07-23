@@ -5,7 +5,6 @@ public class Lecturer extends Person {
     private Course course;
 
     public Lecturer() {
-
     }
 
     public Lecturer(String name, int age, String address, String department, String LecturerId, Course course) {

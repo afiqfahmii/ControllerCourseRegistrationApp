@@ -9,7 +9,6 @@ public class LecturerController {
 
     public void mainController(ArrayList<Lecturer> lList, Scanner s) {
         String tempStaffNum;
-        int index = -1;
         int option = 4;
 
         App.printLogIn();
@@ -36,8 +35,6 @@ public class LecturerController {
                 } while (option != 3);
             }
         }
-        if (index == -1)
-            System.out.println("WRONG");
     }
 
     public int lecturerOption(ArrayList<Lecturer> lList, int i, Scanner s) {

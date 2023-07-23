@@ -22,7 +22,7 @@ public class StudentController {
                         + ". "
                         + cList.get(j).getCourseName());
             }
-
+            
             int coursePosition = s.nextInt() - 1;
             s.nextLine();
             System.out.println();

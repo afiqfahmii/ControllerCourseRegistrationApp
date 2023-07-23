@@ -74,6 +74,8 @@ public class Course {
             }
             sList[sList.length - 1] = null;
         }
+
+        studNum--;
     }
 
     public int getStudentNum() {
