@@ -5,7 +5,6 @@ public class Lecturer extends Person {
     private Course course;
 
     public Lecturer() {
-
     }
 
     public Lecturer(String name, int age, String address, String department, String LecturerId, Course course) {
@@ -17,6 +16,18 @@ public class Lecturer extends Person {
 
     public String getDepartment() {
         return department;
+    }
+
+    public String getLecturerId() {
+        return LecturerId;
+    }
+
+    public void setLecturerId(String lecturerId) {
+        LecturerId = lecturerId;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     public void setDepartment(String department) {
@@ -31,13 +42,16 @@ public class Lecturer extends Person {
         this.LecturerId = staffId;
     }
 
-    public Course getCourse(){
+    public Course getCourse() {
         return course;
     }
 
     @Override
 
     public String toString() {
-        return "Course{" + ", department=" + department + ", staffId=" + LecturerId + "}";
+        if (getCourse() == null)
+            return "Not assigned yet";
+        else
+            return "Course{" + ", department=" + department + ", staffId=" + LecturerId + "}";
     }
 }

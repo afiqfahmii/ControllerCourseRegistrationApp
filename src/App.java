@@ -1,6 +1,7 @@
 //Search and  Display and delete
 
 import java.util.Scanner;
+
 import java.util.ArrayList;
 
 public class App {
@@ -72,11 +73,11 @@ public class App {
                         switch (choice) {
                                 case 1: {
                                         LecturerController lc = new LecturerController();
-                                        lc.mainController(lList, s); //!controller implementation #1
+                                        lc.mainController(lList, s); // !controller implementation #1
                                         break;
                                 }
                                 case 2: {
-                                        //controller implementation #2
+                                        // controller implementation #2
                                         StudentController sc = new StudentController();
                                         String tempMatricNumber;
                                         int option = 0;
@@ -93,7 +94,7 @@ public class App {
                                                                         case 1:
                                                                                 sc.addCourse(cList, sList, s, i);
                                                                                 break;
-                                                                                
+
                                                                         case 2:
                                                                                 // same implementation as add course
                                                                                 sc.removeCourse(sList, cList, i, s);
@@ -115,12 +116,10 @@ public class App {
                                                 }
 
                                         }
-
+                                        break;
                                 }
                                 case 3: {
                                         String tempACStaffNum;
-                                        int index = 0;
-                                        int option = 0;
 
                                         // ACADstaff
                                         /*
@@ -134,76 +133,16 @@ public class App {
                                         tempACStaffNum = s.nextLine();
                                         for (int i = 0; i < acList.size(); i++) {
                                                 if (tempACStaffNum.equals(acList.get(i).getStaffNum())) {
-                                                        // index = i;
-                                                        do {
-                                                                greeting(acList.get(i));
-                                                                System.out.println("1. Create Course");
-                                                                System.out.println("2. Remove Course");
-                                                                System.out.println("3. View Course Detail");
-                                                                System.out.println("4. Exit");
-                                                                System.out.print("Enter Your Option: ");
-                                                                option = s.nextInt();
-                                                                s.nextLine();
-                                                                System.out.println();
 
-                                                                switch (option) {
-                                                                        case 1:
-                                                                                String code;
-                                                                                String nameCourse;
-                                                                                int credit;
-                                                                                System.out.println(
-                                                                                                "Enter course code: ");
-                                                                                code = s.nextLine();
-                                                                                System.out.println(
-                                                                                                "Enter course name: ");
-                                                                                nameCourse = s.nextLine();
-                                                                                System.out.println(
-                                                                                                "Enter Credit hours: ");
-                                                                                credit = s.nextInt();
+                                                        greeting(acList.get(i));
+                                                        AcademicStaffView view = new AcademicStaffView();
+                                                        AcademicStaffController controller = new AcademicStaffController(
+                                                                        acList.get(i), view, cList, sList, lList);
 
-                                                                                Course c = new Course(nameCourse, code,
-                                                                                                credit);
+                                                        view.printAcademicStaffDetails(acList.get(i));
+                                                        controller.processUserInput();
 
-                                                                                cList.add(c);
-
-                                                                                break;
-                                                                        case 2:
-                                                                                // delete course dari system
-                                                                                // delete c1;
-                                                                                for (int j = 0; j < cList.size(); j++) {
-                                                                                        System.out.println((j + 1)
-                                                                                                        + ". "
-                                                                                                        + cList.get(j).toString());
-                                                                                }
-                                                                                System.out.print(
-                                                                                                "Please input the number of course to delete: ");
-
-                                                                                int removeCourse = s.nextInt() - 1;
-                                                                                s.nextLine();
-                                                                                System.out.println();
-                                                                                cList.remove(removeCourse);
-                                                                                break;
-                                                                        case 3:
-                                                                                for (int j = 0; j < cList.size(); j++) {
-                                                                                        System.out.println((j + 1)
-                                                                                                        + ". "
-                                                                                                        + cList.get(j).toString());
-                                                                                        cList.get(j).printStudent();
-                                                                                }
-
-                                                                                break;
-                                                                        case 4:
-                                                                                System.out.println("Exiting.....");
-                                                                                break;
-
-                                                                        default:
-                                                                                System.out.println("WRONG INPUT ");
-                                                                                break;
-
-                                                                }
-                                                        } while (option != 4);
                                                 }
-
                                         }
 
                                         break;

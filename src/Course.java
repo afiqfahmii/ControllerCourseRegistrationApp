@@ -50,7 +50,6 @@ public class Course {
         if (studNum < MAX) {
             sList[studNum] = s;
             studNum++;
-            System.out.println("Added Successfully");
         } else {
             System.out.println("Full");
         }
@@ -75,6 +74,8 @@ public class Course {
             }
             sList[sList.length - 1] = null;
         }
+
+        studNum--;
     }
 
     public int getStudentNum() {
@@ -83,6 +84,7 @@ public class Course {
 
     @Override
     public String toString() {
+        
         return "Course{" + "Course Name =" + courseName + ", Course Code=" + courseCode + ", Number Of Credit=" + credits + "}";
     }
 
@@ -92,6 +94,10 @@ public class Course {
             System.out.println(sList[i].toString());
             System.out.println();
         }
+    }
+
+    public int getCapacity(){
+        return MAX;
     }
 
 }
